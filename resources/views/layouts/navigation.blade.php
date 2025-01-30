@@ -13,9 +13,23 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Inicio') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('libros.listado')" :active="request()->routeIs('libros.listado')">
+                        {{ __('Libros') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('usuarios.listado')" :active="request()->routeIs('usuarios.listado')">
+                        {{ __('Usuarios') }}
+                    </x-nav-link>
+                </div>
+
+                
             </div>
 
             <!-- Settings Dropdown -->

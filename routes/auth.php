@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LibroController;
+use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
@@ -56,4 +58,40 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
+
+    Route::get('/libros'       , [LibroController::class, 'listado'])
+        ->name('libros.listado');
+
+    Route::get('/libro/{id}'            , [LibroController::class, 'mostrar'])
+        ->name('libros.mostrar');
+
+    Route::get('/libro/actualizar/{id}' , [LibroController::class, 'actualizar'])
+        ->name('libros.actualizar');
+
+    Route::get('/libro/eliminar/{id}'   , [LibroController::class, 'eliminar'])
+        ->name('libros.eliminar');
+
+    Route::get('/libros/nuevo'          , [LibroController::class, 'alta'])
+        ->name('libros.alta');
+
+    Route::post('/libros/nuevo'         , [LibroController::class, 'almacenar'])
+        ->name('libros.almacenar');
+
+    Route::get('/usuarios'       , [UsuarioController::class, 'listado'])
+    ->name('usuarios.listado');
+
+    Route::get('/usuario/{id}'            , [UsuarioController::class, 'mostrar'])
+        ->name('usuarios.mostrar');
+
+    Route::get('/usuario/actualizar/{id}' , [UsuarioController::class, 'actualizar'])
+        ->name('usuarios.actualizar');
+
+    Route::get('/usuario/eliminar/{id}'   , [UsuarioController::class, 'eliminar'])
+        ->name('usuarios.eliminar');
+
+    Route::get('/usuarios/nuevo'          , [UsuarioController::class, 'alta'])
+        ->name('usuarios.alta');
+
+    Route::post('/usuarios/nuevo'         , [UsuarioController::class, 'almacenar'])
+        ->name('usuarios.almacenar');
 });

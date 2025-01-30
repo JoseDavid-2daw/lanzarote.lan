@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,10 +20,22 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'juanra',
-            'email' => 'juan_curbelo@cifpzonzamas.es',
-            'password' => Hash::make('password'),
+            'name' => 'josedavid',
+            'email' => 'josezondaw@gmail.com',
+            'password' => Hash::make('rizosbeys@2005'),
         ]);
+
+
+        $admin = Role::create(['name' => 'admin']);
+        $editor = Role::create(['name' => 'editor']);
+        $createPost = Permission::create(['name' => 'create post']);
+        $editPost = Permission::create(['name' => 'edit post']);
+        $deletePost = Permission::create(['name' => 'delete post']);
+        $admin->givePermissionTo($createPost, $editPost, $deletePost);
+        $editor->givePermissionTo($editPost);
 
     }
 }
+
+
+
