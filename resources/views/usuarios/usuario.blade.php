@@ -10,6 +10,7 @@
             <td>#</td>
             <td>nombre</td>
             <td>email</td>
+            <td>rol</td>
         </tr>
 
     
@@ -27,6 +28,7 @@
             </td>
             <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $usuario->name }}</td> 
             <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $usuario->email }}</td> 
+            <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $usuario->rol }}</td> 
     </tr>
 
     @endforeach

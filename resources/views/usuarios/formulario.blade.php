@@ -52,6 +52,22 @@
             <input {{ $disabled }}  type="password" name="password" class="form-control" id="password"  value="{{ old('password',$usuario->password)}}" placeholder="Contraseña">
             @error('password') <p style="color: red;">{{ $message }}</p> @enderror
         </div>
+        <div class="mb-3">
+            <label for="rol" class="form-label">Rol</label>
+            <select {{ $disabled }}  name="rol" id="rol" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option value="">Selecciona un rol...</option>
+                @foreach ($ROLES as $clave_rol => $texto_rol)
+
+                    @php
+                        $selected = old('rol') == $clave_rol || $usuario->rol == $clave_rol ? 'selected="selected"' : '';
+                    @endphp
+        
+                    <option value="{{ $clave_rol }}" {{ $selected }}>{{ $texto_rol }}</option>
+
+                @endforeach
+            </select>
+            @error('rol') <p style="color: red;">{{ $message }}</p> @enderror
+        </div>
 
         @php
 

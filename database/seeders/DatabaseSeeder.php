@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'josedavid',
             'email' => 'josezondaw@gmail.com',
             'password' => Hash::make('rizosbeys@2005'),
+            'rol' => 'AM'
         ]);
 
 
