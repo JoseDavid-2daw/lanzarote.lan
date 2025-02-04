@@ -49,7 +49,7 @@
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Contraseña</label>
-            <input {{ $disabled }}  type="text" name="password" class="form-control" id="password"  value="{{ old('password',$usuario->password)}}" placeholder="Contraseña">
+            <input {{ $disabled }}  type="password" name="password" class="form-control" id="password"  value="{{ old('password',$usuario->password)}}" placeholder="Contraseña">
             @error('password') <p style="color: red;">{{ $message }}</p> @enderror
         </div>
 
