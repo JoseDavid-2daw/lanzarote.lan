@@ -47,8 +47,4 @@ class User extends Authenticatable
         ];
     }
 
-    const ROLES = [
-        'AM' => 'admin'
-       ,'US' => 'user'
-   ];
 }

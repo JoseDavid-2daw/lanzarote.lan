@@ -28,7 +28,11 @@
             </td>
             <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $usuario->name }}</td> 
             <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $usuario->email }}</td> 
-            <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $usuario->rol }}</td> 
+            <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                @foreach (json_decode($usuario->rol) as $rol)
+                    <span>{{$rol}}</span>
+                @endforeach
+            </td> 
     </tr>
 
     @endforeach
@@ -36,7 +40,8 @@
     </table>
     {{ $usuarios->links() }}
 </div>
-    <a href="/usuarios/nuevo" class="btn btn-success"><i class="bi bi-plus"></i> Nuevo usuario</a>
-
+    @role('admin')
+        <a href="/usuarios/nuevo" class="btn btn-success"><i class="bi bi-plus"></i> Nuevo usuario</a>
+    @endrole
 
 @endsection

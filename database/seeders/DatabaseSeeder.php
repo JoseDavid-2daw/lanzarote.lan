@@ -23,18 +23,21 @@ class DatabaseSeeder extends Seeder
             'name' => 'josedavid',
             'email' => 'josezondaw@gmail.com',
             'password' => Hash::make('rizosbeys@2005'),
-            'rol' => 'AM'
+            'rol' => json_encode(['admin']),
         ]);
 
 
         $admin = Role::create(['name' => 'admin']);
         $editor = Role::create(['name' => 'editor']);
+        $user = Role::create(['name' => 'user']);
         $createPost = Permission::create(['name' => 'create post']);
         $editPost = Permission::create(['name' => 'edit post']);
         $deletePost = Permission::create(['name' => 'delete post']);
         $admin->givePermissionTo($createPost, $editPost, $deletePost);
         $editor->givePermissionTo($editPost);
 
+        $usuario = User::find(1);
+        $usuario->syncRoles(['admin']);
     }
 }
 
